@@ -11,6 +11,7 @@ from tinydb import TinyDB, Query
 
 from .config import TINYDB_PATH
 from .moe_router import ask
+from .jev_client import choose
 
 MAX_PLAUSIBLE_SOCKS = 60      # one household load; 170 means a stray zero
 DEFECTS = ["none", "faded", "torn", "missing_sock", "wear", "other"]
@@ -50,9 +51,15 @@ def transform(run_id):
 
     df = df.dropna(subset=["ts"]).drop_duplicates(subset=["ts", "machine", "load"])
 
+    # System 1 (Jev) routes the note-tagging job to an expert before System 2 does it.
+    sample = " | ".join(n for n in df["notes"].fillna("") if n)[:400]
+    route = choose(run_id, "Which expert should tag these laundry notes?", sample,
+                   ["clean", "analyze", "decide"])
+    expert = route["choice"] if route.get("confidence", 0) >= 0.5 else "clean"
+
     # Haiku expert reads every operator note in ONE batched call.
     notes = df["notes"].fillna("").tolist()
-    reply = ask("clean", run_id,
+    reply = ask(expert, run_id,
                 'For each laundry note return a JSON list of {"defect": '
                 + "|".join(DEFECTS) + ', "severity": low|medium|high}. '
                 "Same length as the input, same order. Only JSON.\n" + json.dumps(notes))

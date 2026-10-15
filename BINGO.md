@@ -1,15 +1,15 @@
 # Bingo Card — laundry-sorting
 
-**10/25 squares** · need 20 + all ★ core · **1 bingo line(s)** · **NOT YET**
+**16/25 squares** · need 20 + all ★ core · **2 bingo line(s)** · **NOT YET**
 
 Missing core: STREAMLIT
 
 | B | I | N | G | O |
 |---|---|---|---|---|
 | ✅ ★ Agent runs in a loop | ✅ ★ Reads data from a file | ✅ ★ TinyDB for messy / free text | ✅ File name logged | ✅ New data read at intervals |
-| ✅ Fake data import each minute | ⬜ Data cleaned | ✅ ★ Clean data in SQLite | ⬜ ★ Streamlit visualization | ⬜ Live flow chart of steps |
-| ⬜ SQL queries displayed | ⬜ Stat formula shown | ✅ ★ FREE: project in Git | ⬜ Method 1: descriptive | ⬜ Method 2: trend / regression |
-| ⬜ Method 3: anomaly / test | ✅ ★ Stat result triggers action | ⬜ Jev System 1 decisions | ⬜ MoE: models used, when, for what | ✅ Claude API key via .env |
+| ✅ Fake data import each minute | ✅ Data cleaned | ✅ ★ Clean data in SQLite | ⬜ ★ Streamlit visualization | ⬜ Live flow chart of steps |
+| ⬜ SQL queries displayed | ⬜ Stat formula shown | ✅ ★ FREE: project in Git | ✅ Method 1: descriptive | ✅ Method 2: trend / regression |
+| ✅ Method 3: anomaly / test | ✅ ★ Stat result triggers action | ✅ Jev System 1 decisions | ✅ MoE: models used, when, for what | ✅ Claude API key via .env |
 | ⬜ Claude Routine created | ⬜ Runs on GitHub Actions | ⬜ Hosted on Streamlit Cloud | ⬜ 30-second Claude Motion video | ⬜ Each step documented visually |
 
 ## Evidence
@@ -18,23 +18,23 @@ Missing core: STREAMLIT
 |---|---|---|
 | AGENT_LOOP | ✅ | src/agent.py |
 | FILE_INGEST | ✅ | src/generate_fake_data.py |
-| TINYDB | ✅ | src/extract.py |
+| TINYDB | ✅ | src/transform.py |
 | FILENAME_LOG | ✅ | src/runlog.py |
 | INTERVAL_ETL | ✅ | src/agent.py |
 | FAKE_DATA | ✅ | src/generate_fake_data.py |
-| CLEANING | ⬜ | — |
+| CLEANING | ✅ | src/transform.py |
 | SQLITE | ✅ | src/runlog.py |
 | STREAMLIT | ⬜ | — |
 | FLOWCHART | ⬜ | — |
 | SQL_SHOWN | ⬜ | — |
 | FORMULA_SHOWN | ⬜ | — |
 | FREE_GIT | ✅ | .git/ |
-| METHOD_DESC | ⬜ | — |
-| METHOD_TREND | ⬜ | — |
-| METHOD_ANOMALY | ⬜ | — |
-| STAT_ACTION | ✅ | src/config.py, src/runlog.py |
-| JEV_DECIDE | ⬜ | — |
-| MOE_PANEL | ⬜ | — |
+| METHOD_DESC | ✅ | src/transform.py |
+| METHOD_TREND | ✅ | src/analytics.py |
+| METHOD_ANOMALY | ✅ | src/analytics.py |
+| STAT_ACTION | ✅ | src/actions.py, src/agent.py |
+| JEV_DECIDE | ✅ | src/jev_client.py |
+| MOE_PANEL | ✅ | src/runlog.py, src/moe_router.py |
 | CLAUDE_API_ENV | ✅ | .env.example, src/config.py |
 | ROUTINE | ⬜ | — |
 | GH_ACTIONS | ⬜ | — |
