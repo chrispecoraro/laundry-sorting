@@ -1,9 +1,9 @@
-"""The agent loop: generate -> extract (more steps land in later milestones)."""
+"""The agent loop: generate -> extract -> clean -> load."""
 import argparse
 import time
 import uuid
 
-from . import generate_fake_data, extract
+from . import generate_fake_data, extract, transform, load
 from .runlog import log_step, now
 
 
@@ -13,7 +13,11 @@ def run_once():
     log_step(run_id, "generate", "ok", f.name, started_at=t)
     t = now(); files = extract.extract(run_id)
     log_step(run_id, "extract", "ok", ",".join(files), started_at=t)
-    print(f"[agent] run {run_id} done")
+    t = now(); df = transform.transform(run_id)
+    log_step(run_id, "clean", "ok", detail=f"{len(df)} rows", started_at=t)
+    t = now(); sql = load.load(df)
+    log_step(run_id, "load", "ok", sql=sql, started_at=t)
+    print(f"[agent] run {run_id} done; {len(df)} clean rows")
 
 
 if __name__ == "__main__":
