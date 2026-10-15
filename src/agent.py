@@ -1,10 +1,11 @@
-"""The agent loop: generate -> extract -> clean -> load."""
+"""The agent loop: generate -> extract -> clean -> load -> analyze -> act."""
 import argparse
 import time
 import uuid
 
-from . import generate_fake_data, extract, transform, load
+from . import generate_fake_data, extract, transform, load, analytics, actions
 from .runlog import log_step, now
+from .moe_router import ask
 
 
 def run_once():
@@ -17,7 +18,13 @@ def run_once():
     log_step(run_id, "clean", "ok", detail=f"{len(df)} rows", started_at=t)
     t = now(); sql = load.load(df)
     log_step(run_id, "load", "ok", sql=sql, started_at=t)
-    print(f"[agent] run {run_id} done; {len(df)} clean rows")
+    t = now(); stats = analytics.analyze(run_id)
+    log_step(run_id, "analyze", "ok", sql=analytics.BATCH_SQL, detail=str(stats), started_at=t)
+    ask("analyze", run_id,
+        f"Summarize these laundry sorting stats in 3 sentences: {stats}")
+    t = now(); a = actions.act(run_id, stats)
+    log_step(run_id, "act", "triggered" if a else "none", detail=a, started_at=t)
+    print(f"[agent] run {run_id} done; {len(df)} clean rows; action={a}")
 
 
 if __name__ == "__main__":

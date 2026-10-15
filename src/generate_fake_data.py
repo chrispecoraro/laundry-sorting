@@ -5,6 +5,7 @@ blank fields, free-text operator notes, and typo'd sock counts (a stray zero).
 """
 import csv
 import random
+import uuid
 import datetime as dt
 
 from .config import INCOMING
@@ -29,16 +30,16 @@ NOTES = [
 def generate(n=None, spike=None):
     """One file = one sorted batch of loads. ~15% of batches go bad."""
     n = n or random.randint(8, 20)
-    spike = random.random() < 0.15 if spike is None else spike
+    spike = random.random() < 0.12 if spike is None else spike
     stamp = dt.datetime.now()
-    path = INCOMING / f"loads_{stamp:%Y%m%d_%H%M%S}.csv"
+    path = INCOMING / f"loads_{stamp:%Y%m%d_%H%M%S}_{uuid.uuid4().hex[:4]}.csv"
 
     with path.open("w", newline="") as f:
         w = csv.writer(f)
         w.writerow(["ts", "machine", "load", "socks_in", "pairs_out", "notes"])
         for i in range(n):
             pairs = random.randint(3, 12)
-            unmatched = max(0, round(random.gauss(5.0 if spike else 0.8, 1.2)))
+            unmatched = max(0, round(random.gauss(8.0 if spike else 0.8, 1.2)))
             socks = 2 * pairs + unmatched
 
             # data entry is human: stray zero, unit tacked on, or just blank
