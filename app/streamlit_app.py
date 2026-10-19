@@ -28,12 +28,22 @@ SYSTEM_1 = "#8e44ad"   # Jev: fast typed decisions
 SYSTEM_2 = "#2980b9"   # Claude: slow reasoning
 
 
+@st.cache_data(ttl=55, show_spinner=False)
+def fetch(url):
+    """One download per minute, not one per chart. Cached by URL."""
+    r = requests.get(url, timeout=20)
+    r.raise_for_status()
+    if not r.content.startswith(b"SQLite format 3"):
+        raise ValueError(f"{url} did not return a SQLite file (got {len(r.content)} bytes)")
+    path = os.path.join(tempfile.gettempdir(), "clean.sqlite")
+    with open(path, "wb") as f:
+        f.write(r.content)
+    return path
+
+
 def db():
     if DB_URL:
-        path = os.path.join(tempfile.gettempdir(), "clean.sqlite")
-        with open(path, "wb") as f:
-            f.write(requests.get(DB_URL, timeout=20).content)
-        return sqlite3.connect(path)
+        return sqlite3.connect(fetch(DB_URL))
     return sqlite3.connect("db/clean.sqlite")
 
 
@@ -51,7 +61,13 @@ def show(title, sql):
 
 @st.fragment(run_every=60)
 def live():
-    runs = q("SELECT * FROM pipeline_runs ORDER BY rowid DESC LIMIT 6")
+    try:
+        runs = q("SELECT * FROM pipeline_runs ORDER BY rowid DESC LIMIT 6")
+    except Exception as e:
+        st.error(f"Could not read the database from `{DB_URL or 'db/clean.sqlite'}`.\n\n{e}")
+        st.caption("On Streamlit Cloud, DB_URL must point at the raw SQLite file the "
+                   "GitHub Action commits. Check Settings → Secrets.")
+        return
     last = runs.iloc[0] if len(runs) else None
     st.subheader(f"Live pipeline — run {last['run_id'] if last is not None else '—'}")
 
