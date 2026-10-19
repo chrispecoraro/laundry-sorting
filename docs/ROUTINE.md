@@ -10,7 +10,7 @@ Created with `/schedule` in Claude Code (or claude.ai/code → Routines).
 
 ## Prompt
 
-> In repo `<your repo URL>`: read `db/clean.sqlite`. Summarize the last 24 hours —
+> In repo `https://github.com/chrispecoraro/laundry-sorting`: read `db/clean.sqlite`. Summarize the last 24 hours —
 > batches processed, mean unmatched socks per batch and how it moved, every row in
 > `actions` (with its z-score), model usage by expert from `model_calls`, and any
 > data-quality issues (blank sock counts, typo'd counts caught by the 60-sock cap,

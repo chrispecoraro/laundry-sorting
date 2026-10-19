@@ -11,6 +11,7 @@ ingests a new batch of load records, cleans up the mess a human typed, stores it
 runs three statistics on it, and when the number of unmatched socks goes abnormal,
 it takes a visible action.
 
+**Repo:** https://github.com/chrispecoraro/laundry-sorting
 **Live dashboard:** _paste your `https://<app>.streamlit.app` URL here after deploying_
 
 ---
