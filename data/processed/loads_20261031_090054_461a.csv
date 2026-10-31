@@ -1,0 +1,14 @@
+ts,machine,load,socks_in,pairs_out,notes
+2026-10-31 09:00,dryer a,L090000,13,6,kid's sock stuck in the drum
+2026-10-31T09:00:54,WASHER 1,L090001,12,,collar looks worn out
+2026-10-31T09:00:54,dryer a,L090002,240,,"smells fine, nothing weird"
+2026-10-31 09:00,dryer a,L090003,12,6,
+10/31/2026 09:00 AM,Washer 2,L090004,10,5,
+2026-10-31 09:00,washer1,L090005,11,5,kid's sock stuck in the drum
+10/31/2026 09:00 AM,dryer a,L090006,15 socks,6,collar looks worn out
+2026-10-31T09:00:54,WASHER 1,L090007,20,9,small tear on the sleeve
+2026-10-31 09:00,WASHER 1,L090008,21,10,small tear on the sleeve
+2026-10-31T09:00:54,dryer a,L090009,15,7,kid's sock stuck in the drum
+2026-10-31T09:00:54,Washer 1,L090010,11,5,"towel snagged, loose thread"
+2026-10-31 09:00,Washer 2,L090011,12,,kid's sock stuck in the drum
+10/31/2026 09:00 AM,washer1,L090012,25,,red tee faded bad
