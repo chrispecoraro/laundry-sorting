@@ -15,13 +15,13 @@
 | Square | Status | Evidence |
 |---|---|---|
 | AGENT_LOOP | ✅ | src/agent.py |
-| FILE_INGEST | ✅ | app/streamlit_app.py |
+| FILE_INGEST | ✅ | src/generate_fake_data.py |
 | TINYDB | ✅ | src/extract.py |
-| FILENAME_LOG | ✅ | app/streamlit_app.py |
-| INTERVAL_ETL | ✅ | app/streamlit_app.py |
+| FILENAME_LOG | ✅ | src/runlog.py |
+| INTERVAL_ETL | ✅ | src/agent.py |
 | FAKE_DATA | ✅ | src/generate_fake_data.py |
 | CLEANING | ✅ | src/transform.py |
-| SQLITE | ✅ | app/streamlit_app.py |
+| SQLITE | ✅ | src/runlog.py |
 | STREAMLIT | ✅ | app/streamlit_app.py |
 | FLOWCHART | ✅ | app/streamlit_app.py |
 | SQL_SHOWN | ✅ | app/streamlit_app.py |
@@ -29,10 +29,10 @@
 | FREE_GIT | ✅ | .git/ |
 | METHOD_DESC | ✅ | src/analytics.py |
 | METHOD_TREND | ✅ | src/analytics.py |
-| METHOD_ANOMALY | ✅ | src/analytics.py |
-| STAT_ACTION | ✅ | src/config.py, app/streamlit_app.py |
-| JEV_DECIDE | ✅ | app/streamlit_app.py, src/actions.py |
-| MOE_PANEL | ✅ | app/streamlit_app.py, src/moe_router.py |
+| METHOD_ANOMALY | ✅ | src/actions.py |
+| STAT_ACTION | ✅ | src/actions.py, src/agent.py |
+| JEV_DECIDE | ✅ | src/jev_client.py |
+| MOE_PANEL | ✅ | src/moe_router.py |
 | CLAUDE_API_ENV | ✅ | .env.example, src/config.py |
 | ROUTINE | ✅ | docs/ROUTINE.md |
 | GH_ACTIONS | ✅ | .github/workflows/etl.yml |
