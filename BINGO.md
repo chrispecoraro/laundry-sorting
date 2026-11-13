@@ -27,11 +27,11 @@
 | SQL_SHOWN | ✅ | app/streamlit_app.py |
 | FORMULA_SHOWN | ✅ | app/streamlit_app.py |
 | FREE_GIT | ✅ | .git/ |
-| METHOD_DESC | ✅ | src/analytics.py |
+| METHOD_DESC | ✅ | src/transform.py |
 | METHOD_TREND | ✅ | src/analytics.py |
 | METHOD_ANOMALY | ✅ | src/analytics.py |
 | STAT_ACTION | ✅ | src/config.py, app/streamlit_app.py |
-| JEV_DECIDE | ✅ | app/streamlit_app.py, src/actions.py |
+| JEV_DECIDE | ✅ | app/streamlit_app.py, src/transform.py |
 | MOE_PANEL | ✅ | app/streamlit_app.py, src/moe_router.py |
 | CLAUDE_API_ENV | ✅ | .env.example, src/config.py |
 | ROUTINE | ✅ | docs/ROUTINE.md |
