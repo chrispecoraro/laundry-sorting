@@ -17,7 +17,7 @@
 | AGENT_LOOP | ✅ | src/agent.py |
 | FILE_INGEST | ✅ | src/extract.py |
 | TINYDB | ✅ | src/extract.py |
-| FILENAME_LOG | ✅ | src/runlog.py |
+| FILENAME_LOG | ✅ | src/extract.py |
 | INTERVAL_ETL | ✅ | src/agent.py |
 | FAKE_DATA | ✅ | src/generate_fake_data.py |
 | CLEANING | ✅ | src/transform.py |
@@ -29,10 +29,10 @@
 | FREE_GIT | ✅ | .git/ |
 | METHOD_DESC | ✅ | src/analytics.py |
 | METHOD_TREND | ✅ | src/analytics.py |
-| METHOD_ANOMALY | ✅ | src/analytics.py |
-| STAT_ACTION | ✅ | src/actions.py, src/runlog.py |
+| METHOD_ANOMALY | ✅ | src/actions.py |
+| STAT_ACTION | ✅ | src/actions.py |
 | JEV_DECIDE | ✅ | src/jev_client.py |
-| MOE_PANEL | ✅ | src/runlog.py, src/moe_router.py |
+| MOE_PANEL | ✅ | src/moe_router.py |
 | CLAUDE_API_ENV | ✅ | .env.example, src/config.py |
 | ROUTINE | ✅ | docs/ROUTINE.md |
 | GH_ACTIONS | ✅ | .github/workflows/etl.yml |
