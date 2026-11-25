@@ -1,0 +1,15 @@
+ts,machine,load,socks_in,pairs_out,notes
+2026-11-25 02:12,washer 2,L021200,16,8,all good
+11/25/2026 02:12 AM,washer1,L021201,,,all good
+2026-11-25T02:12:31,dryer a,L021202,13,5,"smells fine, nothing weird"
+11/25/2026 02:12 AM,Dryer A,L021203,80,4,all good
+2026-11-25 02:12,washer1,L021204,19,9,
+2026-11-25T02:12:31,dryer a,L021205,12,,kid's sock stuck in the drum
+2026-11-25T02:12:31,WASHER 1,L021206,22 socks,,two blacks came out grey
+2026-11-25 02:12,Washer 1,L021207,8,3,
+11/25/2026 02:12 AM,Washer 2,L021208,120,,kid's sock stuck in the drum
+11/25/2026 02:12 AM,WASHER 1,L021209,13,,
+2026-11-25 02:12,washer 2,L021210,11,,two blacks came out grey
+2026-11-25 02:12,dryer a,L021211,25,12,"towel snagged, loose thread"
+2026-11-25T02:12:31,WASHER 1,L021212,18,9,"smells fine, nothing weird"
+11/25/2026 02:12 AM,dryer a,L021213,17,,"towel snagged, loose thread"
