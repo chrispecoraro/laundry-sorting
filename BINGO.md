@@ -15,8 +15,8 @@
 | Square | Status | Evidence |
 |---|---|---|
 | AGENT_LOOP | ✅ | src/agent.py |
-| FILE_INGEST | ✅ | src/extract.py |
-| TINYDB | ✅ | src/extract.py |
+| FILE_INGEST | ✅ | src/generate_fake_data.py |
+| TINYDB | ✅ | src/transform.py |
 | FILENAME_LOG | ✅ | src/runlog.py |
 | INTERVAL_ETL | ✅ | src/agent.py |
 | FAKE_DATA | ✅ | src/generate_fake_data.py |
@@ -27,11 +27,11 @@
 | SQL_SHOWN | ✅ | app/streamlit_app.py |
 | FORMULA_SHOWN | ✅ | app/streamlit_app.py |
 | FREE_GIT | ✅ | .git/ |
-| METHOD_DESC | ✅ | src/analytics.py |
+| METHOD_DESC | ✅ | src/transform.py |
 | METHOD_TREND | ✅ | src/analytics.py |
 | METHOD_ANOMALY | ✅ | src/analytics.py |
-| STAT_ACTION | ✅ | src/actions.py, src/runlog.py |
-| JEV_DECIDE | ✅ | src/jev_client.py |
+| STAT_ACTION | ✅ | src/config.py |
+| JEV_DECIDE | ✅ | src/transform.py |
 | MOE_PANEL | ✅ | src/runlog.py, src/moe_router.py |
 | CLAUDE_API_ENV | ✅ | .env.example, src/config.py |
 | ROUTINE | ✅ | docs/ROUTINE.md |
